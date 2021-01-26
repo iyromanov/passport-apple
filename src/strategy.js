@@ -7,8 +7,7 @@ const OAuth2Strategy = require('passport-oauth2'),
     crypto = require('crypto'),
     AppleClientSecret = require("./token"),
     util = require('util')
-    querystring = require('querystring'),
-    jwt = require('jsonwebtoken');
+    querystring = require('querystring');
 
 /**
  * Passport Strategy Constructor
@@ -93,8 +92,7 @@ function Strategy(options, verify) {
                         const access_token = results.access_token;
                         const refresh_token = results.refresh_token;
                         const id_token = results.id_token;
-                        const decodedIdToken = jwt.decode(id_token);
-                        callback(null, access_token, refresh_token, decodedIdToken, id_token);
+                        callback(null, access_token, refresh_token, id_token);
                     }
                 }
             )
